@@ -1,3 +1,14 @@
+/* 
+gcl - color
+
+Used to print stuff to the terminal with colors and other styles
+Example usage:
+
+printf("%sThis text will be in yellow!%s", FORE_YELLOW, RESET_ALL)
+printf("%s%s%s%s%sYou can also get crazy with it%s%s%s!!%s\n", BACK_GREEN, FORE_RED, STYLE_UNDERLINE, STYLE_BOLD, STYLE_BLINK, RESET_ALL, BACK_BLUE, FORE_YELLOW, RESET_ALL);
+
+*/
+
 #define RESET_ALL "\033[0m"
 #define RESET_BACK "\033[49m"
 #define RESET_FORE "\033[39m"

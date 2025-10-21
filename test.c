@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "color.h"
+#include "gcl/color.h"
 
 int main() {
     printf("Hello world\n");
