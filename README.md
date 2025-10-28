@@ -4,10 +4,10 @@ I'm trying to create a personal library to make it easier for me to code in C. F
 
 - [ ] better strings
 - [ ] something better than scanf()
-- [ ] readfile()
-- [ ] writefile()
-- [ ] startswith()
-- [ ] endswith()
+- [ ] write_file()
+- [ ] starts_with()
+- [ ] ends_with()
 
 #### DONE:
+- [x] read_file()
 - [x] printing text to the terminal with colors (color.h)
