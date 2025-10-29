@@ -8,6 +8,7 @@ read_file() - Reading a file (=storing all the content of a file in a char* vari
 */
 
 #include <stdio.h>
+#include <string.h>
 
 /*
 file_length(char* filepath)
@@ -19,26 +20,25 @@ int length_of_my_file = file_length("file.txt");
 
 */
 int file_length(char* filepath) {
-  FILE* fp;
-  int count = 0;
-  char c;
-  fp = fopen(filepath, "r");
-  if (fp == NULL) {
-    printf("gcl/file file_length() error: Could not open file %s", filepath);
+    FILE* fp;
+    int count = 0;
+    char c;
+    fp = fopen(filepath, "r");
+    if (fp == NULL) {
+        printf("gcl/file file_length() error: Could not open file %s", filepath);
     return -1;
-  }
+    }
 
-  for (c = getc(fp); c != EOF; c = getc(fp)) {
-    count++;
-  }
+    for (c = getc(fp); c != EOF; c = getc(fp)) {
+        count++;
+    }
   
-  fclose(fp);
-  return count;
+    fclose(fp);
+    return count;
 }
 
-
 /*
-void read_file(char* content, char filepath[2048])
+read_file(char* content, char filepath[2048])
 
 Used to put all the contents of a file in a char-like variable
 Example usage: 
@@ -50,16 +50,36 @@ read_file(content_of_my_file, "file.txt");
 The variable content_of_my_file now contains all the contents of the file
 
 */
-void read_file(char* content, char filepath[2048]) {
-  FILE* fp;
-  fp = fopen(filepath, "r");
-  if (fp == NULL) {
-    printf("gcl/file read_file() error: Could not open file %s\n", filepath);
-    return -1;
-  }
-  int flen = file_length(filepath);
-  fp = fopen(filepath, "r");
-  fread(content, 1, flen, fp);
-  content[flen] = '\0';
-  fclose(fp);
+int read_file(char* content, char filepath[2048]) {
+    FILE* fp;
+    fp = fopen(filepath, "r");
+    if (fp == NULL) {
+        printf("gcl/file read_file() error: Could not open file %s\n", filepath);
+        return -1;
+    }
+    int flen = file_length(filepath);
+    fp = fopen(filepath, "r");
+    fread(content, 1, flen, fp);
+    content[flen] = '\0';
+    fclose(fp);
+    return 0;
+}
+
+/*
+write_file(char* content, char filepath[2048])
+
+Used to write in a file.
+Example usage:
+
+char my_text[] = "C is the best programming language ever!\n\nI use Arch, btw.";
+write_file(my_text, "my_humble_opinion.txt");
+
+*/
+int write_file(char* content, char filepath[2048]) {
+    FILE* fp;
+    int content_length = strlen(content);
+    fp = fopen(filepath, "w");
+    fwrite(content, 1, content_length, fp);
+    fclose(fp);
+    return 0;
 }
