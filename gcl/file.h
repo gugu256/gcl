@@ -3,7 +3,8 @@ gcl - file
 
 Used to do various file operations including:
 file_length() - Getting the length of a file (= number of characters in a file)
-read_file() - Reading a file (=storing all the content of a file in a char* variable - can be a char[] array)
+file_read() - Reading a file (=storing all the content of a file in a char* variable - can be a char[] array)
+file_write() - Writing in a file
 
 */
 
@@ -38,23 +39,23 @@ int file_length(char* filepath) {
 }
 
 /*
-read_file(char* content, char filepath[2048])
+file_read(char* content, char filepath[2048])
 
 Used to put all the contents of a file in a char-like variable
 Example usage: 
 
 int length_of_my_file = file_length("file.txt");
 char content_of_my_file[length_of_my_file];
-read_file(content_of_my_file, "file.txt");
+file_read(content_of_my_file, "file.txt");
 
 The variable content_of_my_file now contains all the contents of the file
 
 */
-int read_file(char* content, char filepath[2048]) {
+int file_read(char* content, char filepath[2048]) {
     FILE* fp;
     fp = fopen(filepath, "r");
     if (fp == NULL) {
-        printf("gcl/file read_file() error: Could not open file %s\n", filepath);
+        printf("gcl/file file_read() error: Could not open file %s\n", filepath);
         return -1;
     }
     int flen = file_length(filepath);
@@ -66,16 +67,16 @@ int read_file(char* content, char filepath[2048]) {
 }
 
 /*
-write_file(char* content, char filepath[2048])
+file_write(char* content, char filepath[2048])
 
 Used to write in a file.
 Example usage:
 
 char my_text[] = "C is the best programming language ever!\n\nI use Arch, btw.";
-write_file(my_text, "my_humble_opinion.txt");
+file_write(my_text, "my_humble_opinion.txt");
 
 */
-int write_file(char* content, char filepath[2048]) {
+int file_write(char* content, char filepath[2048]) {
     FILE* fp;
     int content_length = strlen(content);
     fp = fopen(filepath, "w");
