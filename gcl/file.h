@@ -80,6 +80,10 @@ int file_write(char* content, char filepath[2048]) {
     FILE* fp;
     int content_length = strlen(content);
     fp = fopen(filepath, "w");
+    if (fp == NULL) {
+        printf("gcl/file file_length() error: Could not open file %s", filepath);
+    return -1;
+    }
     fwrite(content, 1, content_length, fp);
     fclose(fp);
     return 0;

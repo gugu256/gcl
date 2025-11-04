@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "gcl/color.h"
 #include "gcl/file.h"
+#include "gcl/str.h"
 
 int main() {
     /*int lenofccomp = file_length("/Users/evatzug/Desktop/lightfair.json");
@@ -39,7 +40,13 @@ int main() {
         printf("It's not the same string\n");
     }*/
 
-    printf("Hello world\n");
-    printf("%s%s%s%s%sYou can also get crazy with it%s%s%s!!%s\n", BACK_GREEN, FORE_RED, STYLE_UNDERLINE, STYLE_BOLD, STYLE_BLINK, RESET_ALL, BACK_BLUE, FORE_YELLOW, RESET_ALL);
+    //printf("Hello world\n");
+    //printf("%s%s%s%s%sYou can also get crazy with it%s%s%s!!%s\n", BACK_GREEN, FORE_RED, STYLE_UNDERLINE, STYLE_BOLD, STYLE_BLINK, RESET_ALL, BACK_BLUE, FORE_YELLOW, RESET_ALL);
+    // char ctest1[] = "this is the first test";
+    // test_firstchar(ctest1);
+    // char* ctest2 = "and this is the second test";
+    // test_firstchar(ctest2);
+    // if (str_starts_with("hoyhoy", "hoihoihei")) {printf("ef\n");}
+    // if (str_starts_with("hoehoe", "hoehoehei")) {printf("fe\n");}
     return 0;
 }
