@@ -17,66 +17,33 @@ Used to compare two strings, returns 'true' if they are identical and 'false' if
 
 */
 bool str_is_equal(char* str1, char* str2) {
-    int lstr1 = strlen(str1);
-    int lstr2 = strlen(str2);
-    
-    if (lstr1 != lstr2) {
-        return false;
-    }
-
-    for (int i = 0; i < lstr1; i++) {
-        if (str1[i] == str2[i]) {
-            continue;
-        } else {
-            return false;
-        }
-    }
-
-    return true;
-
-}
-
-bool str_starts_with(char* start, char* tested) {
-    int lstart = strlen(start);
-    
-    if (lstart > strlen(tested)) {
-        return false;
-    }
-
-    char tested_dest[lstart+1];
-    for (int i = 0; i < lstart; i++) {
-        tested_dest[i] = tested[i];
-    }
-    tested_dest[lstart] = '\0';
-
-    if (str_is_equal(start, tested_dest)) {
+    if (strcmp(str1, str2) == 0) {
         return true;
     } else {
         return false;
     }
-
 }
 
-bool str_ends_with(char* end, char* tested) {
-    int lend = strlen(end);
-    
-    if (lend > strlen(tested)) {
+bool str_starts_with(const char *start, const char *tested) {
+    size_t lstart = strlen(start);
+    size_t ltested = strlen(tested);
+    if (ltested < lstart) return false;
+    return strncmp(tested, start, lstart) == 0;
+}
+
+bool str_ends_with(const char *end, const char *tested) {
+    size_t lend = strlen(end);
+    size_t ltested = strlen(tested);
+
+    if (lend > ltested) {
         return false;
     }
 
-    char tested_dest[lend+1];
-    int starting_index = strlen(tested) - lend;
-    for (int i = 0; i < lend; i++) {
-        tested_dest[i] = tested[(starting_index+i)];
-    }
-    tested_dest[lend] = '\0';
-    
-    if (str_is_equal(end, tested_dest)) {
-        return true;
-    } else {
-        return false;
-    }
+    return strcmp(tested + (ltested - lend), end) == 0;
+}
 
+bool str_is_in(const char *substr, const char *tested) {
+    return strstr(tested, substr) != NULL;
 }
 
 /*

@@ -45,10 +45,12 @@ int main() {
 
     // if (str_starts_with("hoyhoy", "hoihoihei")) {printf("ef\n");}
     // if (str_starts_with("hoehoe", "hoehoehei")) {printf("fe\n");}
+    // if (str_starts_with("h", "h")) {printf("fe\n");}
 
     // if (str_ends_with("ing", "connecting")) {printf("ends in -ing\n\n");}
     // if (str_ends_with("ing", "ODSGSDIJG")) {printf("ends in -ing\n\n");} else {printf("DOESN'T ends in -ing\n\n");}
     // if (str_ends_with("ing", "ng")) {printf("ends in -ing\n\n");} else {printf("DOESN'T ends in -ing\n\n");}
+    // if (str_ends_with("g", "g")) {printf("ends in -g\n\n");} else {printf("DOESN'T end in -g\n\n");}
     
     return 0;
 }
