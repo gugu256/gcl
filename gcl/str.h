@@ -43,16 +43,37 @@ bool str_starts_with(char* start, char* tested) {
         return false;
     }
 
-    char tested_dest[lstart];
-    int i = 0;
+    char tested_dest[lstart+1];
     for (int i = 0; i < lstart; i++) {
         tested_dest[i] = tested[i];
     }
-    
+    tested_dest[lstart] = '\0';
+
     if (str_is_equal(start, tested_dest)) {
         return true;
     } else {
+        return false;
+    }
 
+}
+
+bool str_ends_with(char* end, char* tested) {
+    int lend = strlen(end);
+    
+    if (lend > strlen(tested)) {
+        return false;
+    }
+
+    char tested_dest[lend+1];
+    int starting_index = strlen(tested) - lend;
+    for (int i = 0; i < lend; i++) {
+        tested_dest[i] = tested[(starting_index+i)];
+    }
+    tested_dest[lend] = '\0';
+    
+    if (str_is_equal(end, tested_dest)) {
+        return true;
+    } else {
         return false;
     }
 

@@ -42,11 +42,13 @@ int main() {
 
     //printf("Hello world\n");
     //printf("%s%s%s%s%sYou can also get crazy with it%s%s%s!!%s\n", BACK_GREEN, FORE_RED, STYLE_UNDERLINE, STYLE_BOLD, STYLE_BLINK, RESET_ALL, BACK_BLUE, FORE_YELLOW, RESET_ALL);
-    // char ctest1[] = "this is the first test";
-    // test_firstchar(ctest1);
-    // char* ctest2 = "and this is the second test";
-    // test_firstchar(ctest2);
+
     // if (str_starts_with("hoyhoy", "hoihoihei")) {printf("ef\n");}
     // if (str_starts_with("hoehoe", "hoehoehei")) {printf("fe\n");}
+
+    // if (str_ends_with("ing", "connecting")) {printf("ends in -ing\n\n");}
+    // if (str_ends_with("ing", "ODSGSDIJG")) {printf("ends in -ing\n\n");} else {printf("DOESN'T ends in -ing\n\n");}
+    // if (str_ends_with("ing", "ng")) {printf("ends in -ing\n\n");} else {printf("DOESN'T ends in -ing\n\n");}
+    
     return 0;
 }
